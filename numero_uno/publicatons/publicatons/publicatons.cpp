@@ -77,7 +77,7 @@ private:
     string auth;
     int number;
     int tom;
-    int pubC;
+    int pubC=200;
     bool scoup;
     bool WoS;
     bool RINC;
@@ -112,10 +112,16 @@ public:
     int gettom() {
         return tom;
     };
-    int setpubC(string spubC) {
+    int setpubC(int spubC) {
 
     };
     int getpubC() {
+        int error_code{ 0 };
+        if (pubC) {
+            error_code = -2;
+        }
+
+        return  error_code;
         return pubC;
     };
     bool setscoup(string sscoup) {
@@ -179,11 +185,12 @@ int main()
 
     std::cout << "Hello World!\n";
     publication a;
+    magazine aa;
     cout << "Введите год: ";
     int b;
     cin >> b;
     cout<<a.setYear(b);
-    
+    cout << aa.getpubC();
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
